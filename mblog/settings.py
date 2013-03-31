@@ -1,4 +1,5 @@
 # Django settings for mblog project.
+print "entering settings"
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

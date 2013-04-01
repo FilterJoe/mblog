@@ -20,6 +20,8 @@ root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 DEBUG = False  # production server
 TEMPLATE_DEBUG = DEBUG
 
+ALLOWED_HOSTS = ['mblog.herokuapp.com']
+
 ADMINS = (
 ('Joe Golton', 'JoeCode@manycycles.com'),
 )

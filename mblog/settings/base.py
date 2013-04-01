@@ -60,7 +60,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = root("..", "uploads")
+MEDIA_ROOT = root("..", "..", "uploads")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -71,7 +71,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = root("..", "static")
+STATIC_ROOT = root("..", "..", "static")
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -79,7 +79,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    root("assets"),
+    root("..", "assets"),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -129,12 +129,15 @@ DJANGO_APPS = (              # note the name change from INSTALLED_APPS per sugg
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'blog',
 )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = (
+    'south',
+)
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'blog',
+)
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS  # Doing it this way helps testing: specify Local only
 

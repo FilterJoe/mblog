@@ -1,6 +1,8 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
-from blog.views import homepage
 from django.contrib import admin
+
+from blog.views import homepage
 
 admin.autodiscover()
 

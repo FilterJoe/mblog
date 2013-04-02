@@ -14,7 +14,7 @@ PROJECT_ROOT = here("..")
 # folder(s) we pass it starting at the parent directory of the current file.
 root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 # above comes from Kenneth Love's Getting Started with Django tutorial series
-DEBUG = True  # production server
+DEBUG = False  # production server
 TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = ['mblog.herokuapp.com', '*']
 

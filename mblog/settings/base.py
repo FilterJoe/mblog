@@ -1,11 +1,9 @@
 # Django settings for mblog project.
 # This file consists of defaults for production server.
 # local.py will override these settings when needed
-
 print "entering settings"
 
 import dj_database_url
-
 import os
 # here() gives us file paths from the root of the system to the directory
 # holding the current file.
@@ -16,29 +14,15 @@ PROJECT_ROOT = here("..")
 # folder(s) we pass it starting at the parent directory of the current file.
 root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 # above comes from Kenneth Love's Getting Started with Django tutorial series
-
 DEBUG = False  # production server
 TEMPLATE_DEBUG = DEBUG
-
 ALLOWED_HOSTS = ['mblog.herokuapp.com']
 
-ADMINS = (
-('Joe Golton', 'JoeCode@manycycles.com'),
-)
-
+ADMINS = (('Joe Golton', 'JoeCode@manycycles.com'),)
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': dj_database_url.config()
-}
-
+DATABASES = {'default': dj_database_url.config()}
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
 TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
@@ -80,9 +64,6 @@ STATIC_URL = '/static/'
 # Additional locations of static files
 STATICFILES_DIRS = (
     root("..", "assets"),
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
 )
 
 # List of finder classes that know how to find static files in
@@ -117,7 +98,9 @@ ROOT_URLCONF = 'mblog.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'mblog.wsgi.application'
 
-TEMPLATE_DIRS = (root("templates"),)
+TEMPLATE_DIRS = (
+    root("templates"),
+)
 
 DJANGO_APPS = (              # note the name change from INSTALLED_APPS per suggestion of Kenneth Love
     'django.contrib.auth',
@@ -127,8 +110,6 @@ DJANGO_APPS = (              # note the name change from INSTALLED_APPS per sugg
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 )
 
 THIRD_PARTY_APPS = (

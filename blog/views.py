@@ -6,8 +6,10 @@ from .models import Post
 
 class PublishedPostsMixin(object):
     def get_queryset(self):
-        queryset = super(PublishedPostsMixin, self).get_queryset()
-        return queryset.filter(published=True)
+        return self.model.objects.live()  # this is much less readable then before
+        # queryset = super(PublishedPostsMixin, self).get_queryset()
+        # return queryset.filter(published=True)
+        # this is what we had before the ModelManager change
 
 
 class PostListView(PublishedPostsMixin, ListView):
@@ -21,7 +23,8 @@ class PostListView(PublishedPostsMixin, ListView):
 class PostDetailView(PublishedPostsMixin, DetailView):
     model = Post
 
-
+# noticed how the pk is no longer passed in. And then can change pk to some other identifier like slug
+# and it still works . . . seems magical . . .
 
 
 

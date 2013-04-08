@@ -1,19 +1,15 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
+
 from django.contrib import admin
 
-from blog.views import homepage
+from . import views
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^$', homepage),
-    # url(r'^mblog/', include('mblog.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
+    url(r'^$', views.HomepageView.as_view(), name='home_page'),
+    url(r'^blog/', include('blog.urls', namespace='blog')),  # notice the quotes needed around blog.urls
     url(r'^admin/', include(admin.site.urls)),
 )
 

@@ -1,12 +1,12 @@
 {% extends "_layouts/base.html" %}
 
 {% block page_content %}
-  <div class="row-fluid">
+  <div class="row-fluid" xmlns="http://www.w3.org/1999/html">
   <h2>Hello There!</h2>
 
   <p>This is a blog. A microblog, actually.</p>
 
-  <p>It's all about learning, with "Getting Started with Django"</p>
+  <p>It's all about learning, with <a href="http://gettingstartedwithdjango.com/">Getting Started with Django</a></p>
 
   <a href="{% url 'blog:list' %}" class="btn">Read my blog</a>
   </div>

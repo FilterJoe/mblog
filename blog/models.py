@@ -16,6 +16,7 @@ class Post(models.Model):
     content = models.TextField()
     published = models.BooleanField(default=True)
     author = models.ForeignKey(User, related_name="posts")
+    category = models.CharField(max_length=127)
     objects = PostManager()  # this is for the published=True PostManager
 
     class Meta:
